@@ -17,7 +17,9 @@
     "socket.io": "^4.3.1"
   },
   "scripts": {
-    "start": "ts-node-dev --exit-child src/server.ts"
+    "start": "node ./build/server.js",
+    "dev": "ts-node-dev --exit-child src/server.ts",
+    "build": "tsc --build ./tsconfig.json"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
