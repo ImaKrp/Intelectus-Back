@@ -3,6 +3,7 @@ import { Router } from "express";
 //? Controllers
 
 import { UserController } from "./controllers/UserController";
+import { GameController } from "./controllers/GameController";
 
 //? MiddleWares
 
@@ -21,5 +22,9 @@ router.patch("/recover/:id", new UserController().passwordRecovery);
 router.post("/authenticate", new UserController().authenticate);
 
 router.put("/user/update", ensureAuthenticated, new UserController().update);
+
+router.post("/game/result", ensureAuthenticated, new GameController().create);
+
+router.get("/game/results", ensureAuthenticated, new GameController().list);
 
 export { router };
